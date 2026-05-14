@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://example.org/fcmfd/1.0/#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+  <owl:Ontology rdf:about="http://example.org/fcmfd/1.0/"/>
+  
+  <!-- Classes -->
+  <owl:Class rdf:about="#FCMFD_Theory"/>
+  <owl:Class rdf:about="#NFW_Theory"/>
+  <owl:Class rdf:about="#GalacticHalo"/>
+  <owl:Class rdf:about="#AlgebraicSubstrateField"/>
+  <owl:Class rdf:about="#ScalingRelation"/>
+  <owl:Class rdf:about="#ModelComparison"/>
+  
+  <!-- Disjointness -->
+  <owl:AllDisjointClasses>
+    <owl:members rdf:parseType="Collection">
+      <rdf:Description rdf:about="#FCMFD_Theory"/>
+      <rdf:Description rdf:about="#NFW_Theory"/>
+    </owl:members>
+  </owl:AllDisjointClasses>
+  
+  <!-- Data properties -->
+  <owl:DatatypeProperty rdf:about="#beta">
+    <rdfs:domain rdf:resource="#FCMFD_Theory"/>
+    <rdfs:range rdf:resource="&xsd;decimal"/>
+  </owl:DatatypeProperty>
+  
+  <owl:DatatypeProperty rdf:about="#gamma">
+    <rdfs:domain rdf:resource="#GalacticHalo"/>
+    <rdfs:range rdf:resource="&xsd;decimal"/>
+  </owl:DatatypeProperty>
+  
+  <owl:DatatypeProperty rdf:about="#deltaBIC">
+    <rdfs:domain rdf:resource="#ModelComparison"/>
+    <rdfs:range rdf:resource="&xsd;decimal"/>
+  </owl:DatatypeProperty>
+  
+  <!-- Object properties -->
+  <owl:ObjectProperty rdf:about="#competesWith">
+    <rdfs:domain rdf:resource="#FCMFD_Theory"/>
+    <rdfs:range rdf:resource="#NFW_Theory"/>
+  </owl:ObjectProperty>
+  
+  <owl:ObjectProperty rdf:about="#hasScalingRelation">
+    <rdfs:domain rdf:resource="#GalacticHalo"/>
+    <rdfs:range rdf:resource="#ScalingRelation"/>
+  </owl:ObjectProperty>
+  
+  <!-- Individuals -->
+  <owl:NamedIndividual rdf:about="#NGC3198">
+    <rdf:type rdf:resource="#GalacticHalo"/>
+    <gamma rdf:datatype="&xsd;decimal">2.5</gamma>
+  </owl:NamedIndividual>
+  
+  <owl:NamedIndividual rdf:about="#FCMFD_Instance">
+    <rdf:type rdf:resource="#FCMFD_Theory"/>
+    <beta rdf:datatype="&xsd;decimal">0.292</beta>
+  </owl:NamedIndividual>
+  
+</rdf:RDF>
